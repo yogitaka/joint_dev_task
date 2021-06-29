@@ -5,7 +5,8 @@ def q1
   names = ["田中", "佐藤", "佐々木", "高橋"]
 
   # 以下に回答を記載
-  p names.push("斉藤")
+  # p names.push("斉藤")  pushメソッドから演算子での代用に変更しました:yogi
+  p names << "斉藤"
 end
 
 def q2
@@ -13,7 +14,8 @@ def q2
   array2 = ["bird", "bat", "tiger"]
 
   # 以下に回答を記載
-  array = array1.concat(array2)
+  # array = array1.concat(array2)  concatメソッドから演算子での結合に変更しました:yogi
+  array = array1 + array2
   p array
 end
 
@@ -28,7 +30,8 @@ def q4
   sports = ["サッカー", "フットサル", nil, "野球", "バスケ", nil, "バレー"]
 
   # 以下に回答を記載
-  sports.delete(nil)
+  # sports.delete(nil)  compact!メソッドに変更しました:yogi
+  sports.compact!
   # 以下は変更しないで下さい
   p sports
 end
@@ -46,7 +49,8 @@ def q6
   numbers1 = [1, 2, 3, 4, 5]
 
   # 以下に回答を記載
-  numbers2 = numbers1.map { |x| x * 10 }
+  # numbers2 = numbers1.map { |x| x * 10 }  xの変数をわかりやすい変数名numに変更しました:yogi
+  numbers2 = numbers1.map { |num| num * 10 }
   p numbers2
 end
 
@@ -54,7 +58,7 @@ def q7
   array = ["1", "2", "3", "4", "5"]
 
   # 以下に回答を記載
-
+  array.map!(&:to_i)
   # 以下は変更しないで下さい
   p array
 end
@@ -63,7 +67,8 @@ def q8
   programming_languages = %w(ruby php python javascript)
 
   # 以下に回答を記載
-
+  programming_languages.map!(&:capitalize)
+  upper_case_programming_languages = programming_languages.map(&:upcase)
   # 以下は変更しないで下さい
   p programming_languages
   p upper_case_programming_languages
@@ -73,21 +78,31 @@ def q9
   names = ["田中", "佐藤", "佐々木", "高橋"]
 
   # 以下に回答を記載
-
+  names.each.with_index(1) do |names, i|
+    puts "会員No.#{i} #{names}さん"
+  end
 end
 
 def q10
   foods = %w(いか たこ うに しゃけ うにぎり うに軍艦 うに丼)
 
   # 以下に回答を記載
-
+  case
+  when foods.include?("うに")
+    puts "好物です"
+  else
+    puts "まぁまぁ好きです"
+  end
 end
 
 def q11
   sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]]
 
   # 以下に回答を記載
-
+  # 回答途中でまだ問題を解けていません:yogi
+  sports.each.with_index(1) do |sports, i|
+    puts "No.#{i} #{sports}"
+  end
 end
 
 def q12
